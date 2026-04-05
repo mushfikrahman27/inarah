@@ -1,0 +1,268 @@
+/* Extracted from website/style.css — footer + floating contact (zip parity) */
+
+.main-footer {
+  width: 100%;
+  background: #0a0a0a;
+  color: #ffffff;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-column .brand-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  text-align: left;
+}
+
+.brand-description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #b0b0b0;
+  max-width: 280px;
+  text-align: left;
+}
+
+.column-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  text-align: left;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #b0b0b0;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: #d4af37;
+}
+
+.contact-info {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #b0b0b0;
+  font-size: 0.85rem;
+}
+
+.contact-icon {
+  margin-right: 8px;
+  font-size: 0.9rem;
+}
+
+.footer-social-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 30px;
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b0b0b0;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-icon:hover {
+  background: #d4af37;
+  color: #0a0a0a;
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px 0;
+  text-align: center;
+}
+
+.copyright {
+  color: #808080;
+  font-size: 0.8rem;
+  letter-spacing: 0.3px;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 30px 15px 20px;
+  }
+
+  .brand-column .brand-title {
+    text-align: center;
+  }
+
+  .brand-description {
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
+/* Floating Communication Layer */
+.floating-contact-container {
+  position: fixed;
+  bottom: 30px;
+  right: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 99999;
+  pointer-events: none;
+}
+
+.floating-contact-container a {
+  pointer-events: auto;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  position: relative;
+}
+
+.floating-contact-container a:hover {
+  transform: scale(1.15) translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+.whatsapp-float {
+  background: #25d366;
+  animation: whatsappPulse 3s infinite;
+}
+
+.messenger-float {
+  background: linear-gradient(135deg, #0084ff, #a033ff);
+  animation: messengerPulse 3s infinite;
+  animation-delay: 1.5s;
+}
+
+.floating-contact-container svg {
+  width: 18px;
+  height: 18px;
+  fill: white;
+}
+
+@keyframes whatsappPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+@keyframes messengerPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 132, 255, 0.5);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(0, 132, 255, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 132, 255, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .floating-contact-container {
+    bottom: 100px;
+    right: 15px;
+    gap: 8px;
+  }
+
+  .floating-contact-container a {
+    width: 32px;
+    height: 32px;
+  }
+
+  .floating-contact-container svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* PDP route: standalone details animation */
+.product-detail-route .details-container {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.variant-swatch.swatch-black {
+  background: #111;
+  border-color: #444 !important;
+}
+.variant-swatch.swatch-silver {
+  background: linear-gradient(135deg, #c0c0c0, #e8e8e8);
+}
+.variant-swatch.swatch-gold {
+  background: linear-gradient(135deg, #b8860b, #ffd700);
+}
